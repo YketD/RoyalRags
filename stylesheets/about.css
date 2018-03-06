@@ -1,0 +1,12 @@
+#contact-info-wrapper{
+    padding: 20px 20%;
+}
+.social_link{
+    position: relative;
+    top: 20px;
+    padding:5px;
+
+}
+.social_link_text{
+    font-size: 25px;
+}

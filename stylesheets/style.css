@@ -1,0 +1,143 @@
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin:0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: transparent;
+  /*overflow: hidden;*/
+}
+#content{
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+
+}
+
+nav{
+  z-index:1000;
+}
+html {
+  /*background: url(../images/bg1.png) no-repeat center center fixed;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:100%;
+  width:100%;
+  background: #e4e9f1; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(-90deg, white,white, rgba(255, 255, 255, 0)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(-90deg, white,white, rgba(255, 255, 255, 0)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(-90deg, white,white, rgba(255, 255, 255, 0)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(-90deg, white,#e4e9f1, rgba(255, 255, 255, 0)); /* Standard syntax */
+
+}
+
+a {
+  color: #00B7FF;
+}
+
+#logo-container{
+position: absolute;
+  bottom:40px;
+  right:40px;
+  text-align: right;
+
+  width: 90%;
+
+
+  overflow: visible;
+
+}
+
+#biglogo-spinner{
+
+  /*margin-bottom: 5%;*/
+height: 150px; /*padding-top: 70px;*/
+
+}
+
+#title{
+  margin-top: 0%;
+  font-size: 50px;
+  font-weight:600;
+  min-width:40px;
+  font-family: "Arial", sans-serif;";
+
+}
+.shadow{
+  width:40%;
+  padding:0px;
+}
+@font-face {
+  font-family: "bodoni";
+  src: url("../font/bodoni.ttf"); /* TTF file for CSS3 browsers */
+}
+#title {
+  /*position: absolute;*/
+  /*top: 50%;*/
+  /*left: 50%;*/
+  /*transform: translateX(-50%) translateY(-50%);*/
+ }
+.title-container{
+  width: 100%;
+}
+h2{
+  font-size: 20px;
+}
+
+#products{
+
+  position: relative;
+;
+
+
+;}
+#about{
+
+  position: relative;
+  /*top: 38%;*/
+
+
+;}
+a {
+  color: black;
+  font-weight: 400;
+  font-family: "Arial";
+  text-decoration: none;
+  size: 40px;
+}
+
+
+.btn {
+  background: #c2e7ff;
+  background-image: -webkit-linear-gradient(top, #c2e7ff, #3799d6);
+  background-image: -moz-linear-gradient(top, #c2e7ff, #3799d6);
+  background-image: -ms-linear-gradient(top, #c2e7ff, #3799d6);
+  background-image: -o-linear-gradient(top, #c2e7ff, #3799d6);
+  background-image: linear-gradient(to bottom, #c2e7ff, #3799d6);
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #bde6ff;
+  background-image: -webkit-linear-gradient(top, #bde6ff, #68acd9);
+  background-image: -moz-linear-gradient(top, #bde6ff, #68acd9);
+  background-image: -ms-linear-gradient(top, #bde6ff, #68acd9);
+  background-image: -o-linear-gradient(top, #bde6ff, #68acd9);
+  background-image: linear-gradient(to bottom, #bde6ff, #68acd9);
+  text-decoration: none;
+  color: white;
+}
+
+
+#brand-logo{
+  display: inline;
+}

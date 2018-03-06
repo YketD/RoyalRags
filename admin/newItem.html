@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- jquery import -->
+    <script src="../javascripts/libs/jquery-3.2.1.min.js"></script>
+    <script src="../javascripts/libs/bootstrap.min.js"></script>
+
+    <!-- stylesheets -->
+    <link type="text/css" rel="stylesheet" href="../stylesheets/style.css">
+    <link type="text/css" rel="stylesheet" href="../stylesheets/imageupload.css">
+    <link type="text/css" rel="stylesheet" href="../stylesheets/Products.css">
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../stylesheets/menubar.css">
+
+    <script src="../javascripts/ajax/editItem.js"></script>
+
+    <script>
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+        var y = 0;
+        var imagelist = [];
+        var productId;
+        function preview_images() {
+            var total_file = document.getElementById("images").files.length;
+            console.log(total_file)
+            for (var i = 0; i < total_file; i++) {
+                $('#image_preview').append("<div id='" + y + "'  class='product col-lg-3 col-md-4 col-sm-6 col-xs-12'>\n" +
+                    "<div class='product-container'>" +
+                    "<img class='img-responsive' src='" + URL.createObjectURL(event.target.files[i]) + "'>" +
+                    "<span onclick='removeimage(this)' class='glyphicon glyphicon-minus-sign'></span>" +
+                    "</div></div></div>");
+                y++;
+                imagelist.push(event.target.files[i]);
+
+            }
+        }
+
+        function removeimage(child) {
+            document.getElementById(imageid).remove();
+            imagelist[imageid] = null;
+        }
+
+        function uploadImages(){
+            $('#imagesform').fileupload({
+                formData: {file: imagelist}
+            });
+        }
+
+//        function upload() {
+//            console.log("submit button pressed")
+//            var input = $("<input>")
+//                .attr("type", "hidden")
+//                .attr("name", "productId").val($('#uploadbutton').attr('name'));
+//            $('#itemform').append($(input));
+//            $("#itemform").bind('ajax:complete', function() {
+////                window.location.href = "http://localhost:3001/admin/admin.html"
+//            });
+//            $('#itemform').submit();
+//
+////            console.log('imagesform submitted ');
+//
+////            window.location.href = "http://localhost:3001/admin/admin.html"
+////            console.log('itemform submitted ');
+//        }
+
+
+        $(document).ready(function() {
+
+        })
+
+    </script>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+    <div class="menubar container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../index.html">RoyalRags - ADMIN AREA</a>
+
+        </div>
+        <ul style="text-align: center" class="nav navbar-nav">
+
+            <li style="margin:auto;" class="menu-item active"><a href="../products.html">LOG OUT</a></li>
+
+        </ul>
+    </div>
+</nav>
+<div class="content">
+    <div class="jumbotron">
+
+        <h2>Add a new Item</h2>
+
+        <div class="row">
+            <form ref="uploadform" id="itemform" action="/admin/api/addItem" method="post"
+                  enctype="multipart/form-data">
+                <div class="form-group float-label-control">
+                    <label for="product_title">Title</label>
+                    <input name="product_title" id='product_title' type="text" class="form-control"
+                           placeholder="product Title" required>
+                </div>
+                <div class="form-group float-label-control">
+                    <label for="product_description">Description</label>
+                    <textarea name="product_description" id="product_description" class="form-control"
+                              placeholder="Description"
+                              rows="3" required></textarea>
+                </div>
+                <div class="form-group float-label-control">
+                    <label for="product_price">Price in £</label>
+                    <input name="product_price" type="text" id="product_price" class="form-control" placeholder="Price"
+                           rows="1" required>
+                </div>
+                <div class="form-group float-label-control">
+                    <label for="product_size">Size</label>
+                    <textarea name="product_size" id="product_size" class="form-control" placeholder="Size"
+                              rows="1" required></textarea>
+                </div>
+                <div class="form-group float-label-control">
+                    <label for="product_size">Thumbnail image</label>
+                    <input type="file" class="form-control" id="thumbnailupload" name="recfile" onchange="preview_images();" />
+                </div>
+                <div class="form-group float-label-control">
+                    <label for="product_size">detail images</label>
+                    <input type="file" class="form-control" id="imagesupload" name="thumbnail" onchange="preview_images();" multiple/>
+                </div>
+                <input type="hidden" name="productid" id="product_id" value="a" required>
+                <input type="submit"  name="Submit!">
+
+            </form>
+            <!--<form method="post" enctype="multipart/form-data" action="/admin/api/addimage">-->
+                <!--<input type="file" class="form-control" id="images" name="images" onchange="preview_images();"/>-->
+                <!--<input type='submit' value='Upload!'/>-->
+            <!--</form>-->
+            <div class="col-md-6">
+
+
+            </div>
+            <!--<form id="imagesform" method="post" enctype="multipart/form-data" action="/admin/api/addimage">-->
+                <!--<input type='submit' value='Upload!'/>-->
+            <!--</form>-->
+            <!--<button type="submit"-->
+                    <!--id="uploadbutton"-->
+                    <!--onclick="upload()"-->
+                    <!--style="margin: auto; padding: 0 20%; background-color: rgba(118,183,206,0.55);" name="null"-->
+                    <!--class="btn btn-outline-primary">Add item-->
+            <!--</button>-->
+
+        </div>
+        <div class="row" id="image_preview"></div>
+    </div>
+</div>
+</body>
+</html>

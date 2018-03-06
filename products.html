@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+
+    <!-- jquery import -->
+    <script src="javascripts/libs/jquery-3.2.1.min.js"></script>
+    <script src="javascripts/libs/bootstrap.min.js"></script>
+    <!--<link type="text/css" rel="stylesheet" href="stylesheets/new_product_layout.css">-->
+<script src="http://sdks.shopifycdn.com/buy-button/0.1.34/buybutton.js"></script>
+    <!-- stylesheets -->
+  <!--   <link type="text/css" rel="stylesheet" href="stylesheets/style.css"> -->
+    <link type="text/css" rel="stylesheet" href="stylesheets/Products.css">
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="stylesheets/menubar.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="text/javascript" src="javascripts/menubar.js"></script>
+
+    <!-- javascripts -->
+
+    <!-- ajax request for products -->
+    <script src="javascripts/ajax/products.js"></script>
+
+    
+
+    <!-- javascripts -->
+
+</head>
+<body>
+    <div class="container-fluid"></div>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <span>
+                    RoyalRags
+                </span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li >
+                    <a href="index.html">
+                        Home 
+                    </span>
+                    </a>
+                </li>
+                            <li class="dropdown mega-dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Store <span class="caret"></span></a>              
+                <ul class="dropdown-menu mega-dropdown-menu">
+                    <li class="col-sm-3" id="slideshowcontainer">
+                        <div id="slideshowreplace"></div>
+                    </li>
+                    <li class="col-sm-3">
+                        <ul>
+                            <li class="dropdown-header">Clothing</li>
+                            <li><a href="#">All</a></li>
+                            <li><a href="#">Sweaters</a></li>
+                            <li><a href="#">Fleeces</a></li>
+                            <li><a href="#">Jackets</a></li>
+                            <li><a href="#">Shirts</a></li>
+                            <li><a href="#">Tops</a></li>
+                            <li><a href="#">T-Shirts</a></li>
+                            <li><a href="#">Trousers & Jeans</a></li>
+                            <li><a href="#">Tracksuits</a></li>
+                        </ul>
+                    </li>
+                    <li class="col-sm-3">
+                        <ul>
+                            <li class="dropdown-header">Accesoires</li>
+                            <li><a href="#">Hats & Caps</a></li>
+                            <li><a href="#">Bags</a></li>
+                            <li><a href="#">Sunglasses</a></li>                            
+                        </ul>
+                    </li>
+                </ul>               
+            </li>
+                
+                <li class="dropdown">
+                    <a href="lookbook.html">Lookbook</a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        Contact
+       
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="categories"></div> 
+<div id="content">
+    <h1 style="text-align: center;"> Products </h1>
+    <div class="cat-list"></div>
+    
+    
+    <div class="row ">
+<div id="collectionslist" class="col-lg-2 col-md-2 col-sm-3 slideshow">
+    <li>
+        <ul>
+            <li class="dropdown-header">Clothing</li>
+            <li><a href="#">All</a></li>
+            <li><a href="#">Sweaters</a></li>
+                            <li><a href="#">Fleeces</a></li>
+                            <li><a href="#">Jackets</a></li>
+                            <li><a href="#">Shirts</a></li>
+                            <li><a href="#">Tops</a></li>
+                            <li><a href="#">T-Shirts</a></li>
+                            <li><a href="#">Trousers & Jeans</a></li>
+                            <li><a href="#">Tracksuits</a></li>
+                            <li class="dropdown-header">Accesoires</li>
+                            <li><a href="#">Hats & Caps</a></li>
+                            <li><a href="#">Bags</a></li>
+                            <li><a href="#">Sunglasses</a></li>                            
+                        </ul>
+                    </li>
+</div>
+    <div class="products row col-lg-10 col-md-10 col-sm-9">
+        <div id="filterwrapper" class="row">
+        Filter:
+
+        <select id="filter" onchange="sort()">
+            <option value="pricehigh">Price high - low</option>
+            <option value="pricelow">Price low - high</option>
+            <option value="datenew">Date new - old</option>
+            <option value="dateold">Date old - new</option>
+        </select>
+
+        
+        <div id='product-component-4f3e2a7a969'></div>
+
+    </div>
+    </div>
+</div>
+</body>
+</html>
