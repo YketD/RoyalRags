@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    getnewproducts();
     $.ajax({
         type: "POST",
         url: "https://royalragz.myshopify.com/api/graphql",
@@ -76,6 +77,61 @@ $(document).ready(function () {
     })
 })
 
+function getnewproducts(){
+    var html = '';
+    $.ajax({
+        type: "POST",
+        url: "https://royalragz.myshopify.com/api/graphql",
+        contentType: "application/graphql",
+        headers: {
+            "X-Shopify-Storefront-Access-Token":"b10b3ccb1773d1b9d8c5f4ea6dd6d9c4"
+        },
+        data: 'query {shop {products (first: 3) {pageInfo {hasNextPage hasPreviousPage}edges {cursor node {id title onlineStoreUrl images(first: 1){edges{node{src}}} variants(first: 1){edges{node{price}}}}}}}}',
+        success: function (data) {
+            console.log(data);
+            var html = "";
+            var productarray = data.data.shop.products.edges;
+            console.log(productarray[1].node.onlineStoreUrl);
+            productarray.forEach(function (t){
+                html += '<div class="col-sm-4">'+
+                    '<div class="col-item">'+
+                    '<div class="photo">'+
+                    '<img src="' +t.node.images.edges[0].node.src +'" class="img-responsive" alt="a" />'+
+                    '</div>'+
+                    '<div class="info">'+
+                    '<div class="row">'+
+                    '<div class="price col-md-6">'+
+                    '<h5>'+
+                    t.node.title + '</h5>'+
+                '<h5 class="price-text-color">'+
+                t.node.variants.edges[0].node.price + '</h5>'+
+                '</div>'+
+                '<div class="rating hidden-sm col-md-6">'+
+                    '<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">'+
+                    '</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">'+
+                    '</i><i class="fa fa-star"></i>'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="separator clear-left">'+
+                    '<p class="btn-add">'+
+                    '<i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>'+
+                '<p class="btn-details">'+
+                    '<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>'+
+                '</div>'+
+                '<div class="clearfix">'+
+                    '</div>'+
+                    '</div>'+
+                    '</div>'+
+                    '</div>';
+            })
+            $('#productscarousel').append(html);
+        },
+
+        error: function (msg) {
+            console.log(msg);
+        }
+    })
+}
 function xd() {
     console.log("xd started");
     var USERNAME = "30511c72c85e4a6c8a5a4aa5ec510f69";

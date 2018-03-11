@@ -6,16 +6,22 @@
     <script src="javascripts/libs/jquery-3.2.1.min.js"></script>
     <script src="javascripts/libs/bootstrap.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
+    <script src="javascripts/ajax/products.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.bundle.min.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="stylesheets/product-slider.css" rel="stylesheet" type="text/css">
 
-<!--     <link type="text/css" rel="stylesheet" href="stylesheets/menubar.css">
- --><link type="text/css" rel="stylesheet" href="stylesheets/style.css">
+
+    <!--     <link type="text/css" rel="stylesheet" href="stylesheets/menubar.css">
+     --><link type="text/css" rel="stylesheet" href="stylesheets/style.css">
+    <script type="text/javascript" src="javascripts/menubar.js"></script>
+    <link type="text/css" rel="stylesheet" href="stylesheets/menubar.css">
+
+
 </head>
 <body>
 <!-- <div class="video">
@@ -40,46 +46,176 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active">
+                <li >
                     <a href="index.html">
-                        Home <span class="sr-only">(current)
-                    </span>
+                        Home
+                        </span>
                     </a>
                 </li>
-                <li>
-                    <a href="products.html">
-                        Store
-                    </a>
+                <li class="dropdown mega-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Store <span class="caret"></span></a>
+                    <ul class="dropdown-menu mega-dropdown-menu">
+                        <li class="col-sm-3" id="slideshowcontainer">
+                            <div id="slideshowreplace"></div>
+                        </li>
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">Clothing</li>
+                                <li><a href="#">All</a></li>
+                                <li><a href="#">Sweaters</a></li>
+                                <li><a href="#">Fleeces</a></li>
+                                <li><a href="#">Jackets</a></li>
+                                <li><a href="#">Shirts</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">T-Shirts</a></li>
+                                <li><a href="#">Trousers & Jeans</a></li>
+                                <li><a href="#">Tracksuits</a></li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">Accesoires</li>
+                                <li><a href="#">Hats & Caps</a></li>
+                                <li><a href="#">Bags</a></li>
+                                <li><a href="#">Sunglasses</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </li>
+
                 <li class="dropdown">
                     <a href="lookbook.html">Lookbook</a>
                 </li>
                 <li>
                     <a href="about.html">
                         Contact
+
                     </a>
                 </li>
-                
+
             </ul>
         </div>
     </div>
 </nav>
-<div id="content">
-<div id="logo-container" style="font-family: 'Raleway', sans-serif;">
+<div id="content bg" >
+    <div id="logo-container1" style="font-family: 'raleway', sans-serif;">
 
-    <img id="biglogo-spinner" src="images/biglogo.gif"/>
+        <img id="biglogo-spinner1" src="images/biglogo.gif"/>
 
-    <div class="title-container">
-        <div id="title" style="font-family: 'Raleway', sans-serif; font-weight: 200">RoyalRags</div>
+        <div class="title-container1">
+            <div id="title" style="font-family: 'mistral', sans-serif; font-weight: 200">ROYALRAGS</div>
+        </div>
+        <h2 id="motd">
+            New garments daily
+        </h2>
+
+        <a href="products.html"><button class="btn">Enter the Shop</button></a>
+
+
+
+    </div><div id="slider-container">
+    <div class="row">
+        <div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="row" id="productscarousel">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price col-md-6">
+                                            <h5>
+                                                Product with Variants</h5>
+                                            <h5 class="price-text-color">
+                                                $199.99</h5>
+                                        </div>
+                                        <div class="rating hidden-sm col-md-6">
+                                            <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                                        </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                                        </i><i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="separator clear-left">
+                                        <p class="btn-add">
+                                            <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
+                                        <p class="btn-details">
+                                            <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price col-md-6">
+                                            <h5>
+                                                Grouped Product</h5>
+                                            <h5 class="price-text-color">
+                                                $249.99</h5>
+                                        </div>
+                                        <div class="rating hidden-sm col-md-6">
+                                        </div>
+                                    </div>
+                                    <div class="separator clear-left">
+                                        <p class="btn-add">
+                                            <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
+                                        <p class="btn-details">
+                                            <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="col-item">
+                                <div class="photo">
+                                    <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                </div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="price col-md-6">
+                                            <h5>
+                                                Product with Variants</h5>
+                                            <h5 class="price-text-color">
+                                                $149.99</h5>
+                                        </div>
+                                        <div class="rating hidden-sm col-md-6">
+                                            <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                                        </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                                        </i><i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="separator clear-left">
+                                        <p class="btn-add">
+                                            <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
+                                        <p class="btn-details">
+                                            <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                    </div>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <h2 id="motd">
-        New garments daily
-    </h2>
-
-    <a href="products.html"><button class="btn">Enter the Shop</button></a>
-
-
-
 </div>
 </div>
 </body>

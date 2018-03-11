@@ -1,0 +1,7 @@
+query
+{shop
+{products
+(first: 10)
+{pageInfo
+{hasNextPage hasPreviousPage}
+edges {cursor node {id title onlineStoreUrl images(first: 1){edges{node{src}}} variants(first: 1){edges{node{price}}}}}}}}

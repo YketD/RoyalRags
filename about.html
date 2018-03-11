@@ -14,6 +14,11 @@
     <link type="text/css" rel="stylesheet" href="stylesheets/menubar.css">
     <link type="text/css" rel="stylesheet" href="stylesheets/about.css">
 
+    <script type="text/javascript" src="javascripts/menubar.js"></script>
+    <link type="text/css" rel="stylesheet" href="stylesheets/menubar.css">
+
+
+
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 </head>
@@ -27,7 +32,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">RoyalRags</a>
+            <a class="navbar-brand" href="#">
+                <span>
+                    RoyalRags
+                </span>
+            </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -37,19 +46,47 @@
                         </span>
                     </a>
                 </li>
-                <li>
-                    <a href="products.html">
-                        Store<span class="sr-only">(current)</span>
-                    </a>
+                <li class="dropdown mega-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Store <span class="caret"></span></a>
+                    <ul class="dropdown-menu mega-dropdown-menu">
+                        <li class="col-sm-3" id="slideshowcontainer">
+                            <div id="slideshowreplace"></div>
+                        </li>
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">Clothing</li>
+                                <li><a href="#">All</a></li>
+                                <li><a href="#">Sweaters</a></li>
+                                <li><a href="#">Fleeces</a></li>
+                                <li><a href="#">Jackets</a></li>
+                                <li><a href="#">Shirts</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">T-Shirts</a></li>
+                                <li><a href="#">Trousers & Jeans</a></li>
+                                <li><a href="#">Tracksuits</a></li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">Accesoires</li>
+                                <li><a href="#">Hats & Caps</a></li>
+                                <li><a href="#">Bags</a></li>
+                                <li><a href="#">Sunglasses</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </li>
+
                 <li class="dropdown">
                     <a href="lookbook.html">Lookbook</a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="about.html">
                         Contact
+
                     </a>
                 </li>
+
             </ul>
         </div>
     </div>
