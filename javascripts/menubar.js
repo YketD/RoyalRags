@@ -111,12 +111,12 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     console.log('Pc');
     var html = '<div id="slideshow" >'+
    '<div>'+
-    '<img class="lookbook-image" src="https://s3.eu-west-2.amazonaws.com/royalrags/Lookbook/1.jpg">   </div>'+
+    '<img class="lookbook-slide" src="https://s3.eu-west-2.amazonaws.com/royalrags/Lookbook/1.jpg">   </div>'+
     '  <div>'+
-    '      <img class="lookbook-image" src="https://s3.eu-west-2.amazonaws.com/royalrags/Lookbook/3.jpg">'+
+    '      <img class="lookbook-slide" src="https://s3.eu-west-2.amazonaws.com/royalrags/Lookbook/3.jpg">'+
     '</div>'+
     '<div>'+
-        '<img class="lookbook-image" src="https://s3.eu-west-2.amazonaws.com/royalrags/Lookbook/6.jpg">'+
+        '<img class="lookbook-slide" src="https://s3.eu-west-2.amazonaws.com/royalrags/Lookbook/6.jpg">'+
     '</div>'+
     '</div>';
     $("#slideshowreplace").append(html);
