@@ -86,13 +86,23 @@ function getnewproducts(){
         headers: {
             "X-Shopify-Storefront-Access-Token":"b10b3ccb1773d1b9d8c5f4ea6dd6d9c4"
         },
-        data: 'query {shop {products (first: 3) {pageInfo {hasNextPage hasPreviousPage}edges {cursor node {id title onlineStoreUrl images(first: 1){edges{node{src}}} variants(first: 1){edges{node{price}}}}}}}}',
+        data: 'query {shop {products (first: 6) {pageInfo {hasNextPage hasPreviousPage}edges {cursor node {id title onlineStoreUrl images(first: 1){edges{node{src}}} variants(first: 1){edges{node{price}}}}}}}}',
         success: function (data) {
             console.log(data);
             var html = "";
             var productarray = data.data.shop.products.edges;
             console.log(productarray[1].node.onlineStoreUrl);
+            html+='<div class="item active">' +
+                '                    <div class="row" id="productscarousel">'
+            var i = 0;
             productarray.forEach(function (t){
+
+                if (i == 3){
+                    html +='</div>\n' +
+                        '                </div>\n' +
+                        '                <div class="item">\n' +
+                        '                    <div class="row">'
+                }
                 html += '<div class="col-sm-4">'+
                     '<div class="col-item">'+
                     '<div class="photo">'+
@@ -123,8 +133,11 @@ function getnewproducts(){
                     '</div>'+
                     '</div>'+
                     '</div>';
+                i++;
             })
-            $('#productscarousel').append(html);
+            html += '</div>\n' +
+                '                </div>'
+            $('#carousel').append(html);
         },
 
         error: function (msg) {
