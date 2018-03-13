@@ -1,84 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-
-    <!-- jquery import -->
-    <script src="javascripts/libs/jquery-3.2.1.min.js"></script>
-    <script src="javascripts/libs/bootstrap.min.js"></script>
-
-    <!-- stylesheets -->
-    <!--<link type="text/css" rel="stylesheet" href="stylesheets/style.css">-->
-    <!--<link type="text/css" rel="stylesheet" href="stylesheets/Products.css">-->
-    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="stylesheets/menubar.css">
-    <!-- javascripts -->
-    <link type="text/css" rel="stylesheet" href="stylesheets/product_layout.css">
-    <!-- ajax request for products -->
-    <script src="javascripts/ajax/product.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- javascripts -->
-
-    <!-- stylesheets -->
-
-    <script>
-        function getproduct(){}
-    </script>
-</head>
-<body>
-<!-- menubar -->
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">RoyalRags</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="index.html">
-                        Home
-                        </span>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="products.html">
-                        Store<span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <a href="lookbook.html">Lookbook</a>
-                </li>
-                <li>
-                    <a href="about.html">
-                        Contact
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div id='product-component-08172e2b87f'></div>
+<div id='product-component-2fdaf069538'></div>
 <script type="text/javascript">
     /*<![CDATA[*/
-    function geturlparams( str_url){
-        // var url_string = url; //window.location.href
-        var url = new URL(str_url);
-        var id = url.searchParams.get("id");
-        console.log(id)
-        return id;
-    }
 
     (function () {
-        var url = window.location.href;
-        var id = geturlparams(url);
         var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
         if (window.ShopifyBuy) {
             if (window.ShopifyBuy.UI) {
@@ -107,8 +31,8 @@
 
             ShopifyBuy.UI.onReady(client).then(function (ui) {
                 ui.createComponent('product', {
-                    id: [id],
-                    node: document.getElementById('product-component-08172e2b87f'),
+                    id: [423348994091],
+                    node: document.getElementById('product-component-2fdaf069538'),
                     moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
                     options: {
                         "product": {
@@ -230,10 +154,5 @@
             });
         }
     })();
-    /*]]>*/
+/*]]>*/
 </script>
-
-
-</div>
-</body>
-</html>

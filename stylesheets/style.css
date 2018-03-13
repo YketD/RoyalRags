@@ -36,7 +36,13 @@ html {
 a {
   color: #00B7FF;
 }
+#homepage-brand{
+    margin: 25px;
+}
 
+#carousel{
+    max-height: 50%;
+}
 #logo-container{
 position: absolute;
   bottom:40px;
@@ -50,10 +56,20 @@ position: absolute;
 
 }
 
+/*.carousel-item{*/
+  /*padding: 50px 150px;*/
+/*}*/
+.logo-container1{
+  align-content: center;
+}
+
 body, html {
   height: 100%;
 }
-
+.img-responsive{
+  height: auto ;
+  max-width: 250px;
+}
 .bg {
   /* The image used */
   background-image: url("../images/bg1.png");

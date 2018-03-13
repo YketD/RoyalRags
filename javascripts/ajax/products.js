@@ -1,3 +1,6 @@
+function cut(str, cutStart, cutEnd){
+    return str.substr(0,cutStart) + str.substr(cutEnd+1);
+}
 $(document).ready(function () {
     getnewproducts();
     $.ajax({
@@ -14,9 +17,12 @@ $(document).ready(function () {
             var productarray = data.data.shop.products.edges; 
             console.log(productarray[1].node.onlineStoreUrl);
             productarray.forEach(function (t){
-                console.log(t);
+                var id = atob(t.node.id)
+                id = cut(id, 0, 21);
+                console.log(id);
+
                  html +=
-                    "<a href='product.html?id=" + t.node.id + "'>" +
+                    "<a href='product.html?id=" + id + "'>" +
                     "<div class='product-wrapper col-lg-3 col-md-4 col-sm-6 col-xs-12'>" + 
                     "   <div class='block product-container ' >" +
                     "           <ul>  " +
@@ -86,7 +92,7 @@ function getnewproducts(){
         headers: {
             "X-Shopify-Storefront-Access-Token":"b10b3ccb1773d1b9d8c5f4ea6dd6d9c4"
         },
-        data: 'query {shop {products (first: 6) {pageInfo {hasNextPage hasPreviousPage}edges {cursor node {id title onlineStoreUrl images(first: 1){edges{node{src}}} variants(first: 1){edges{node{price}}}}}}}}',
+        data: 'query {shop {products (first: 8) {pageInfo {hasNextPage hasPreviousPage}edges {cursor node {id title onlineStoreUrl images(first: 1){edges{node{src}}} variants(first: 1){edges{node{price}}}}}}}}',
         success: function (data) {
             console.log(data);
             var html = "";
@@ -97,13 +103,13 @@ function getnewproducts(){
             var i = 0;
             productarray.forEach(function (t){
 
-                if (i == 3){
+                if (i == 4){
                     html +='</div>\n' +
                         '                </div>\n' +
                         '                <div class="item">\n' +
                         '                    <div class="row">'
                 }
-                html += '<div class="col-sm-4">'+
+                html += '<div class="col-sm-3 carousel-item">'+
                     '<div class="col-item">'+
                     '<div class="photo">'+
                     '<img src="' +t.node.images.edges[0].node.src +'" class="img-responsive" alt="a" />'+
@@ -116,19 +122,19 @@ function getnewproducts(){
                 '<h5 class="price-text-color">'+
                 t.node.variants.edges[0].node.price + '</h5>'+
                 '</div>'+
-                '<div class="rating hidden-sm col-md-6">'+
-                    '<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">'+
-                    '</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">'+
-                    '</i><i class="fa fa-star"></i>'+
-                    '</div>'+
-                    '</div>'+
-                    '<div class="separator clear-left">'+
-                    '<p class="btn-add">'+
-                    '<i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>'+
-                '<p class="btn-details">'+
-                    '<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>'+
-                '</div>'+
-                '<div class="clearfix">'+
+                // '<div class="rating hidden-sm col-md-6">'+
+                //     '<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">'+
+                //     '</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">'+
+                //     '</i><i class="fa fa-star"></i>'+
+                //     '</div>'+
+                //     '</div>'+
+                //     '<div class="separator clear-left">'+
+                //     '<p class="btn-add">'+
+                //     '<i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>'+
+                // '<p class="btn-details">'+
+                //     '<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>'+
+                // '</div>'+
+                // '<div class="clearfix">'+
                     '</div>'+
                     '</div>'+
                     '</div>'+
