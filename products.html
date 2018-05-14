@@ -23,16 +23,17 @@
     <!-- ajax request for products -->
     <script src="javascripts/ajax/products.js"></script>
     <style>
-        nav{
+        nav {
             /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f2f5f6+0,e3eaed+37,c8d7dc+100;Grey+3D+%234 */
             background: rgb(51, 52, 53); /* Old browsers */
             background: -moz-linear-gradient(top, rgb(0, 0, 0) 0%, rgb(39, 42, 45) 100%); /* FF3.6-15 */
             background: -webkit-linear-gradient(top, rgb(0, 0, 0) 0%, rgb(39, 43, 45) 100%); /* Chrome10-25,Safari5.1-6 */
             background: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgb(41, 44, 45) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=0 ); /* IE6-9 */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f5f6', endColorstr='#c8d7dc', GradientType=0); /* IE6-9 */
 
         }
     </style>
+    <script src="javascripts/search.js"></script>
 
     <!-- javascripts -->
 
@@ -42,7 +43,8 @@
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid" style="padding-left: 50px">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -56,7 +58,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li >
+                <li>
                     <a href="index.html">
                         Home
                         </span>
@@ -71,7 +73,7 @@
                         <li class="col-sm-4">
                             <ul>
                                 <li class="dropdown-header">Clothing</li>
-                                <li><a href="products.html">All</a></li>
+                                <li><a href="products.html?cat=all">All</a></li>
                                 <li><a href="products.html?cat=Sweaters">Sweaters</a></li>
                                 <li><a href="products.html?cat=Fleeces">Fleeces</a></li>
                                 <li><a href="products.html?cat=Jackets">Jackets</a></li>
@@ -99,43 +101,77 @@
                 <li>
                     <a href="about.html">
                         Contact
-
                     </a>
                 </li>
+            <li>
+                <form id="nav-search" class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </li>
 
             </ul>
         </div>
     </div>
-</nav><div id="categories"></div>
+</nav>
+<div id="categories"></div>
 <div id="content">
     <h1 style="text-align: center; font-family: 'mistral'"> PRODUCTS </h1>
     <div class="cat-list"></div>
 
 
     <div class="row" style="margin-right: 15px; color: #8c8c8c;">
-        <div  class="col-lg-2 col-md-2 col-sm-12 ">
+        <div class="col-lg-2 col-md-2 col-sm-2 ">
             <div id="collectionslist" style>
-            <li>
-                <ul>
-                    <li class="dropdown-header">Clothing</li>
-                    <li><a href="#">All</a></li>
-                    <li><a href="products.html?cat=Sweaters">Sweaters</a></li>
-                    <li><a href="products.html?cat=Fleeces">Fleeces</a></li>
-                    <li><a href="products.html?cat=Jackets">Jackets</a></li>
-                    <li><a href="products.html?cat=Shirts">Shirts</a></li>
-                    <li><a href="products.html?cat=Tops">Tops</a></li>
-                    <li><a href="products.html?cat=T-Shirts">T-Shirts</a></li>
-                    <li><a href="products.html?cat=Hats %26 Caps">Trousers & Jeans</a></li>
-                    <li><a href="products.html?cat=Tracksuits">Tracksuits</a></li>
-                    <li class="dropdown-header">Accesoires</li>
-                    <li><a href="products.html?cat=Hats %26 Caps">Hats & Caps</a></li>
-                    <li><a href="products.html?cat=Bags">Bags</a></li>
-                    <li><a href="products.html?cat=Sunglasses">Sunglasses</a></li>
-                </ul>
-            </li>
+                <li>
+                    <ul>
+                        <li class="dropdown-header">Clothing</li>
+                        <a href="products.html">
+                            <li>All</li>
+                        </a>
+                        <a href="products.html?cat=Sweaters">
+                            <li>Sweaters</li>
+                        </a>
+                        <a href="products.html?cat=Fleeces">
+                            <li> Fleeces</li>
+                        </a>
+                        <a href="products.html?cat=Jackets">
+                            <li> Jackets</li>
+                        </a>
+                        <a href="products.html?cat=Shirts">
+                            <li> Shirts</li>
+                        </a>
+                        <a href="products.html?cat=Tops">
+                            <li> Tops</li>
+                        </a>
+                        <a href="products.html?cat=T-Shirts">
+                            <li> T-Shirts</li>
+                        </a>
+                        <a href="products.html?cat=Hats %26 Caps">
+                            <li>Trousers & Jeans</li>
+                        </a>
+                        <a href="products.html?cat=Tracksuits">
+                            <li> Tracksuits</li>
+                        </a>
+                        <li class="dropdown-header">Accesoires</li>
+                        <a href="products.html?cat=Hats %26 Caps">
+                            <li>Hats & Caps</li>
+                        </a>
+                        <a href="products.html?cat=Bags">
+                            <li>Bags</li>
+                        </a>
+                        <a href="products.html?cat=Sunglasses">
+                            <li>Sunglasses</li>
+                        </a>
+                    </ul>
+                </li>
             </div>
         </div>
-        <div class="col-lg-10 col-md-10 col-sm-12">
+        <div class="col-lg-10 col-md-10 col-sm-10">
             <div class="products row">
             </div>
 

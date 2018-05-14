@@ -245,3 +245,14 @@ nav{
 navbar-nav>li>a{
   color: #000;
 }
+
+#product-component-08172e2b87f{
+  margin-top: 100px;
+}
+@media screen and (max-width: 767px) {
+  #product-component-08172e2b87f {
+    margin-top: 50px;
+  }
+
+
+}
