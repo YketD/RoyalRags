@@ -29,7 +29,8 @@
 
 @media screen and (max-width: 767px) {
     .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 0; padding-right: 15px; } 
-    
+    #slideshowcontainer{
+        display: none;}
     .navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
     .navbar .nav-collapse .navbar-form { margin: 0; }
     .nav-collapse>li { float: none; }
@@ -51,7 +52,7 @@
     /*background: -o-radial-gradient(#e4e9f1 10%, white 45%, transparent 48%); !* For Opera 11.6-12.0 *!*/
     /*background: -moz-radial-gradient(#e4e9f1 10%, white 45%, transparent 48%); !* For Firefox 3.6-15 *!*/
     /*background: radial-gradient(#e4e9f1 10%, white 45%, transparent 48%); !* Standard syntax *!*/
-}
+
 #biglogo{
     position: absolute;
     height:80%;
@@ -149,7 +150,7 @@ body {
 }
 .mega-dropdown-menu > li > ul > li > a {
   display: block;
-  color: #222;
+  color: #595959;
   padding: 3px 5px;
 }
 .mega-dropdown-menu > li ul > li > a:hover,
@@ -158,7 +159,7 @@ body {
 }
 .mega-dropdown-menu .dropdown-header {
   font-size: 18px;
-  color: black;
+  color: #7d7d7d;
   padding: 5px 60px 5px 5px;
   line-height: 30px;
 }
@@ -203,4 +204,8 @@ body {
 .lookbook-slide{
   max-width: 220px;
   max-height: 220px ;
+}
+
+ul>li>a{
+    padding:10px;
 }

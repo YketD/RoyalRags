@@ -1,7 +1,22 @@
 function cut(str, cutStart, cutEnd){
     return str.substr(0,cutStart) + str.substr(cutEnd+1);
 }
+
+function getUrlParam(){
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    return url.searchParams.get("cat");
+
+}
 $(document).ready(function () {
+    var collection = "Sweaters"
+    collection = getUrlParam();
+    console.log(collection)
+    var query = 'query {shop {collections (query:"' + collection + '", first:1)  {edges {node {products (first: 10) {pageInfo {hasNextPage hasPreviousPage}edges {cursor node {id title onlineStoreUrl images(first: 1){edges{node{src}}} variants(first: 1){edges{node{price}}}}}}}}}}}';
+    console.log(query)
+    if (collection == "all")
+        query =
+            // 'query {shop {collections (query:"' + collection + '", first:1)  {edges {node {products (first: 10) {pageInfo {hasNextPage hasPreviousPage}edges {cursor node {id title onlineStoreUrl images(first: 1){edges{node{src}}} variants(first: 1){edges{node{price}}}}}}}}}}}',
     getnewproducts();
     $.ajax({
         type: "POST",
@@ -10,11 +25,11 @@ $(document).ready(function () {
         headers: {
         "X-Shopify-Storefront-Access-Token":"b10b3ccb1773d1b9d8c5f4ea6dd6d9c4"
         },
-        data: 'query {shop {products (first: 10) {pageInfo {hasNextPage hasPreviousPage}edges {cursor node {id title onlineStoreUrl images(first: 1){edges{node{src}}} variants(first: 1){edges{node{price}}}}}}}}',
+        data: query,
         success: function (data) {           
             console.log(data);
             var html = ""
-            var productarray = data.data.shop.products.edges; 
+            var productarray = data.data.shop.collections.edges[0].node.products.edges;
             console.log(productarray[1].node.onlineStoreUrl);
             productarray.forEach(function (t){
                 var id = atob(t.node.id)
@@ -32,14 +47,14 @@ $(document).ready(function () {
                     // "               </a></li>  " +
                     "           </ul>  " +
                     "  " +
-                    "       <div class='img'>  " +
-                    "           <img class='productimg' src='" + t.node.images.edges[0].node.src + "' alt='pic' />  " +
+                    "       <div class='img' style='overflow:hidden; height: 250px; '>  " +
+                    "           <img class='productimg' style=' display: block;margin: auto;' src='" + t.node.images.edges[0].node.src + "' alt='pic' />  " +
                     "       </div>  " +
                     "  " +
                     "       <div class='bottom'>  " +
                     "           <div class='heading'> </div>  " +
-                    "           <div class='info'>" + t.description + "</div>  " +
-                    "           <div class='style'>" + t.size + "</div>  " +
+                    "           <div class='info'>" + t.node.variants.edges[0].node.description + "</div>  " +
+                    "           <div class='style'>" + t.node.variants.edges[0].node.size + "</div>  " +
                     "           <div class='price'>" + t.node.variants.edges[0].node.price + "</div>  " +
                     "       </div>  " +
                     "  " +
@@ -62,9 +77,10 @@ $(document).ready(function () {
         headers: {
         "X-Shopify-Storefront-Access-Token":"b10b3ccb1773d1b9d8c5f4ea6dd6d9c4"
         },
-        data: 'query {shop {collections (first:5){edges{node{title}}}}}',
+        data: 'query {shop {collections (query:"sweaters", first:1)  {edges {node {products} }}}}',
         success: function (data) {
-            console.log(data);
+            console.log("test")
+            console.log("query data: " + JSON.stringify(data));
             var colletionarray = data.data.shop.collections.edges;
             console.log(colletionarray) ;
             var html = "<ul>";

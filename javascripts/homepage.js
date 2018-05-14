@@ -1,0 +1,1 @@
+ $('#glow').fadeIn(2000).css("display", "inline-block");
